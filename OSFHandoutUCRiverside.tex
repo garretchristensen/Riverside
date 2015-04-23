@@ -1,0 +1,120 @@
+\documentclass[addpoints,10pt]{exam}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\pagestyle{headandfoot}
+
+
+\begin{document}
+
+\firstpageheader{April 24, 2015}{Tools for Reproducibility}{Garret Christensen}
+\firstpageheadrule
+\runningheader{Reproducibility Tools}
+              {Workshop, Page \thepage\ of \numpages}
+              {April 24, 2015}
+%\makebox[\textwidth]{Student Name:\enspace\hrulefill}
+
+%\qformat{Question \thequestion{} (\totalpoints{} \points ) \hfill}
+
+%May you do well!
+%\settabletotalpoints{3}
+%\gradetable[h][questions]
+
+This workshop is designed to give you a brief introduction to several software tools to help you make your work more reproducible. Specifically, we'll work through a simple example to help you learn a little bit about The Open Science Framework (and other more discipline-specific study registries), R Markdown for dynamic documents, sending Stata regression output automatically to your LaTeX paper, versioning your code with git and GitHub, and sharing your data with Harvard's Dataverse.
+
+We'll model our example off a multi-arm water, sanitation, and hygiene cluster randomized trial in Kenya. There are eight arms to the trial (W, S, H, N, WSH, WSHN, Active control, Passive Control). You enroll pregnant women, give them tools and instruction/encouragement for good environmental health behaviors, and then evaluate the health of their children two years later. Hopefully the kids will be taller and have less diarrhea. (This study is called WASH Benefits, and is ongoing in Kenya and Bangladesh. This is mostly a health study, but the tools are the same for the social sciences. You can read the published protocal in \textit{BMJ Open} or results of a pilot in \textit{American Journal of Tropical Medicine \& Hygiene}
+\begin{questions}
+
+\question
+You've come up with the idea for the project, and you want to register it. Create an account on the Open Science Framework (if you don't already have one). Create a new project, either from scratch, or by using a template.
+
+\question
+In real life, do a power calculation to make sure your study is large enough (80-90\% power). 
+
+\question
+Write a simple version of a pre-analysis plan using your text editor of choice.
+ \begin{parts}
+  \part
+   Main hypothesis
+  \part
+   Primary outcomes
+  \part
+  Secondary outcomes
+  \part
+   The precise composition of any families that will be used for mean effects analysis
+  \part
+  The subgroups that will be analyzed
+  \part
+  The direction of expected impact if we want to use a one-sided test
+  \part
+  The primary specification to be used for the analysis
+\end{parts}
+
+\question
+Register the trial and the PAP on the OSF. 
+
+\question 
+Go to Kenya and run the experiment.
+ 
+\question
+The data fairy collected your data and conveniently put it on the Internet. Download the data from my GitHub repo(sitory). URLURLURL You don't need an account to download the .zip archive. (If you're ahead of the game, you can clone the repo. If GitHub is new to you, we'll come back to that.)
+
+\question 
+Write code to label variables.
+
+\question
+Write code in Stata or R to run the regressions you said you were going to run, and version control the code with the OSF.
+\begin{parts}
+\part
+Run your first regression and save the code.
+\part
+Upload the code to the OSF project.
+\part
+Change the code a little, and upload it to the OSF again.
+\end{parts}
+
+\question
+Write code in Stata or R to run the regressions you said you were going to run and version control the code with git.
+\begin{parts}
+\part
+Run your first regression and save the code.
+\part
+Create and clone a github repo. 
+\part
+Change the code a little, add, commit, and push.
+\part
+Change someone else's code, and do a pull request.
+\part
+Merge(?) someone else's pull request. 
+\end{parts}
+
+\question
+Run several regressions in Stata, and put the output directly into your regression table in LaTeX.
+\begin{parts}
+ \part
+ Write a Stata .do file with regression commands, followed by outreg2 commands and tex option.
+ \part
+ Write a LaTeX file with the `standalone' package and include the output files.
+ \part
+ Compile the LaTeX document.
+ \part
+ Change the regressions, and then recompile the pdf.
+\end{parts}
+
+\question
+Run an analysis in R, and combine the code and output into one dynamic document.
+\begin{parts}
+\part R Markdown
+\end{parts}
+
+\question
+Share your data with the world using Harvard's Dataverse.
+
+\question
+Link the OSF project to the data on Dataverse, and the code on GitHub.
+\begin{center}
+End of Workshop!
+\end{center}
+\end{questions}
+\end{document}

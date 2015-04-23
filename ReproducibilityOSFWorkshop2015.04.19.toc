@@ -1,0 +1,13 @@
+\beamer@endinputifotherversion {3.33pt}
+\select@language {english}
+\beamer@sectionintoc {1}{Introduction}{4}{0}{1}
+\beamer@sectionintoc {2}{Problems}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{Publication Bias}{6}{0}{2}
+\beamer@subsectionintoc {2}{2}{Specification Searching}{8}{0}{2}
+\beamer@subsectionintoc {2}{3}{Irreproducible Workflow}{9}{0}{2}
+\beamer@sectionintoc {3}{Solutions}{10}{0}{3}
+\beamer@sectionintoc {4}{Tools}{15}{0}{4}
+\beamer@subsectionintoc {4}{1}{Registries}{15}{0}{4}
+\beamer@subsectionintoc {4}{2}{Pre-Analysis Plan}{21}{0}{4}
+\beamer@subsectionintoc {4}{3}{Workflow}{25}{0}{4}
+\beamer@sectionintoc {5}{Conclusion}{26}{0}{5}
