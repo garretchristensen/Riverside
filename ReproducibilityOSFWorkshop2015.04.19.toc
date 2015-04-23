@@ -10,4 +10,4 @@
 \beamer@subsectionintoc {4}{1}{Registries}{15}{0}{4}
 \beamer@subsectionintoc {4}{2}{Pre-Analysis Plan}{21}{0}{4}
 \beamer@subsectionintoc {4}{3}{Workflow}{25}{0}{4}
-\beamer@sectionintoc {5}{Conclusion}{26}{0}{5}
+\beamer@sectionintoc {5}{Conclusion}{28}{0}{5}
