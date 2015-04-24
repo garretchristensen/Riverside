@@ -1,0 +1,97 @@
+---
+title: "Short example of R Markdown"
+author: "Garret Christensen"
+date: "Thursday, April 23, 2015"
+output: html_document
+---
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+Loading the data
+----------------
+You can bring in the Stata data directly with the 'foreign' package.
+You only have to install a package once, but you have to load the library every time.
+```{r}
+#install.packages("foreign")
+library(foreign)
+setwd ("C:/Users/garret/Documents/Research/BITSS/WorkshopSlides/Riverside")
+WASHB<-read.dta("WASHBpublic_mock.dta")
+```
+
+Running Analaysis
+-----------------
+```{r}
+#Model 1=simple model
+model1<-lm(free_chl_yn~treatw, data=WASHB)
+#Model 2=with hetero-robust se's--a bit more complicated than Stata
+#install.packages("sandwich")
+library(sandwich)
+cov <- vcovHC(model1, type = "HC")
+robust.se <- sqrt(diag(cov))
+#Model 3=add baseline control variables
+model3<-lm(free_chl_yn~treatw+kiswahili+english, data=WASHB)
+```
+Simple Output
+==============
+You can just use built in R functionality.
+
+```{r}
+summary(model1)
+summary(model3)
+```
+
+Fancier Output
+==============
+Or you can use the new package stargazer to get really nice output, in combination with LaTeX, Word, or directly in R Markdown.
+
+Stargazer has three types of output (text, html, and LaTeX) and each of those works best with one of the ways to knit a Markdown file (Word, html, and pdf, respectively).
+
+First I'll save output to a .tex file, and we can use that in TeX later, which is my prefered way of doing things. (If you knit the Markdown as a pdf, you have to use pandoc to compile. I run into problems with that, and with pandoc in general.)
+```{r}
+library(stargazer)
+stargazer(model1, model1, model3, se=list(NULL, robust.se, NULL), title="Results", out="outputR.tex", align=TRUE)
+```
+Second I'll do output as text. It opens nicely in Word or Notepad, or here in Markdown, especially if you knit it to Word format. 
+```{r}
+stargazer(model1, model1, model3, se=list(NULL, robust.se, NULL),type="text", out="outputR.txt", title="Results", align=TRUE)
+```
+Third, I'll do output as html. We can knit right to html here, and it looks great. 
+```{r, results='asis'}
+stargazer(model1, model1, model3, se=list(NULL, robust.se, NULL), type="html", out="outputR.html", title="Results", align=TRUE, column.labels=c("default","robust", "controls"))
+```
+Graphics
+========
+Graphics can be easily inlaid.
+Here, I'll make a map of the number of US military recruits to a 16 year period by county.
+
+```{r, echo=FALSE}
+plot(haz06~waz06, data=WASHB)
+```
+
+Equations
+==========
+Equations work, so you can write short reports all in one file.
+$$ \frac{dN}{dt} = r * N * (1 - \frac{N}{K})$$
+
+Refer to Values
+===============
+You can refer to values calculated in R by just surrounding "r" and the code with single accent marks. `r mean(WASHB$free_chl_yn, na.rm=TRUE)`% of people treated their water with chlorine.
+
+
+Almost, but not quite
+=====================
+Markdown is called markdown instead of markup, because it's supposed to be easier than a full markup language like html or LaTeX, at the expense of not having all the functionality. So you can _almost_ write your entire scholarly article in one combined markdown document, but not quite. Citations, references, etc. 

@@ -1,0 +1,14 @@
+	(1)	(2)	(3)	(4)
+VARIABLES	basic	controls	robust	clustered
+				
+treatw	0.364***	0.364***	0.364***	0.364***
+	[0.040]	[0.040]	[0.044]	[0.052]
+Constant	0.013	0.013	0.013	0.013
+	[0.027]	[0.027]	[0.009]	[0.009]
+				
+Observations	284	284	284	284
+R-squared	0.223	0.223	0.223	0.223
+Fixed Effects	YES	NO		
+Adj R2	0.220	0.220	0.220	0.220
+Standard errors in brackets				
+*** p<0.01, ** p<0.05, * p<0.1				
